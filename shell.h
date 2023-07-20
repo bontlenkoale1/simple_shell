@@ -12,3 +12,4 @@
 #include <string.h>
 
 void prompt(char **av, char **env);
+void main(void);
