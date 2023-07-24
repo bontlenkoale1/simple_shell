@@ -11,6 +11,12 @@
 #include <errno.h>
 #include <string.h>
 #include <limits.h>
+#include <sys/types.h>
+#include <stdbool.h>
 
-void prompt(char **av, char **env);
-void main(void);
+int main(int argc, char **argv);
+void print_prompt1(void);
+void print_prompt2(void);
+char *read_cmd(void);
+int exec_cmd(char *cmd);
+#endif
