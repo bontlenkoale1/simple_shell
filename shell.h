@@ -1,6 +1,10 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
+<<<<<<< HEAD
+=======
+#include <sys/wait.h>
+>>>>>>> 6f049ea7ac66d08b89ba2622a6175326d6c1e5db
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -9,6 +13,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <limits.h>
+<<<<<<< HEAD
 #include <fcntl.h>
 #include <errno.h>
 
@@ -231,5 +236,27 @@ void check_chain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
+=======
+#include <sys/types.h>
+#include <stdbool.h>
+#include <sys/stat.h>
+
+#define NOT_BUILTIN 67
+
+typedef struct builtin {
+  char *name;
+  int (*action)();
+} builtin_command;
+
+extern int errno;
+extern char **environ;
+extern int execution_counter;
+char **command_tokens;
+char *current_cmdline;
+extern char *program_name;
+
+void initialize_shell_data();
+
+>>>>>>> 6f049ea7ac66d08b89ba2622a6175326d6c1e5db
 
 #endif
