@@ -1,8 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define MAX_COMMAND 10
-
 #include <sys/wait.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -13,10 +11,23 @@
 #include <limits.h>
 #include <sys/types.h>
 #include <stdbool.h>
+#include <sys/stat.h>
 
-int main(int argc, char **argv);
-void print_prompt1(void);
-void print_prompt2(void);
-char *read_cmd(void);
-int exec_cmd(char *cmd);
+#define NOT_BUILTIN 67
+
+typedef struct builtin {
+  char *name;
+  int (*action)();
+} builtin_command;
+
+extern int errno;
+extern char **environ;
+extern int execution_counter;
+char **command_tokens;
+char *current_cmdline;
+extern char *program_name;
+
+void initialize_shell_data();
+
+
 #endif
