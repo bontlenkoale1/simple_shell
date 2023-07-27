@@ -91,3 +91,18 @@ int _setenv(info_t *info, char *var, char *value)
 	info->env_changed = 1;
 	return (0);
 }
+#include <unistd.h>
+
+int _putfd(char c, int fd)
+{
+	return write(fd, &c, 1);
+}
+
+int _putsfd(char *str, int fd)
+{
+
+    size_t len = strlen(str);
+
+    return write(fd, str, len);
+}
+
