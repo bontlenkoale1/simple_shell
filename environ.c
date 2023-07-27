@@ -90,3 +90,34 @@ int populate_env_list(info_t *info)
 	info->env = node;
 	return (0);
 }
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+char *convert_number(long int number, int base, int precision)
+
+{
+	
+	int max_length = precision + 3;
+
+	char *result = (char *)malloc(max_length * sizeof(char));
+
+	if (result == NULL)
+	{
+		printf("Memory allocation failed!\n");
+		return NULL;
+	}
+
+	if (base == 10)
+	{
+		snprintf(result, max_length, "%ld", number);
+	}
+	else
+	{
+        	snprintf(result, max_length, "%#.*lx", precision, number);
+	}
+
+    return result;
+}
+
