@@ -96,17 +96,14 @@ int populate_env_list(info_t *info)
 #include <stdlib.h>
 
 char *convert_number(long int number, int base, int precision)
-
 {
-	
 	int max_length = precision + 3;
-
 	char *result = (char *)malloc(max_length * sizeof(char));
 
 	if (result == NULL)
 	{
 		printf("Memory allocation failed!\n");
-		return NULL;
+		return (NULL);
 	}
 
 	if (base == 10)
@@ -115,9 +112,8 @@ char *convert_number(long int number, int base, int precision)
 	}
 	else
 	{
-        	snprintf(result, max_length, "%#.*lx", precision, number);
+		snprintf(result, max_length, "%#.*lx", precision, number);
 	}
-
-    return result;
+	return (result);
 }
 
